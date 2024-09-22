@@ -68,7 +68,7 @@ async def on_chat_start():
     # Let the user know that the system is ready
     msg.content = """
     I'm ready to answer any of your questions about the framework for [AI Bill of Rights](https://www.whitehouse.gov/wp-content/uploads/2022/10/Blueprint-for-an-AI-Bill-of-Rights.pdf)
-    and [NIST AI Risk Management Framework](https://www.whitehouse.gov/wp-content/uploads/2022/10/Blueprint-for-an-AI-Bill-of-Rights.pdf)
+    and [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
     Ask away!
     """
     await msg.update()
