@@ -1,7 +1,7 @@
 tiktoken
 numpy
 chainlit==0.7.700
-openai
+openai==1.44.0
 langchain==0.2.16
 langchain-core==0.2.38
 langchain-community==0.2.16
