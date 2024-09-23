@@ -43,9 +43,9 @@ Context:
 def get_rag_chain():
     """Fetches a simple RAG chain"""
     prompt = ChatPromptTemplate.from_template(RAG_PROMPT)
-    embedding = OpenAIEmbeddings(model='text-embedding-3-small')
+    embedding = OpenAIEmbeddings(model='text-embedding-3-large')
     retriever = QdrantVectorStore.from_existing_collection(
-        collection_name='ai_ethics_te3_small',
+        collection_name='ai_ethics_te3_large',
         embedding=embedding,
         url=os.environ.get('QDRANT_DB'),
         api_key=os.environ.get('QDRANT_API_KEY')
