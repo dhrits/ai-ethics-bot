@@ -7,6 +7,7 @@ from typing import List
 from chainlit.types import AskFileResponse
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyMuPDFLoader
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Qdrant
 from langchain_openai.llms import OpenAI
 from langchain_openai.chat_models import ChatOpenAI
@@ -30,8 +31,8 @@ import chainlit as cl
 from dotenv import load_dotenv; _ = load_dotenv()
 
 RAG_PROMPT = """
-Please answer the question below using the provided context. If the question cannnot be answered
-using the context, politely state that you can't answer that question.
+Please answer the question below using the provided context. Be as detailed as you can be based on the contextual information. 
+If the question cannnot be answered using the context, politely state that you can't answer that question.
 
 Question:
 {question}
@@ -43,9 +44,12 @@ Context:
 def get_rag_chain():
     """Fetches a simple RAG chain"""
     prompt = ChatPromptTemplate.from_template(RAG_PROMPT)
-    embedding = OpenAIEmbeddings(model='text-embedding-3-large')
+    embedding = HuggingFaceEmbeddings(
+        model_name="deman539/nomic-embed-text-v1",
+        model_kwargs={'trust_remote_code': True}
+    )
     retriever = QdrantVectorStore.from_existing_collection(
-        collection_name='ai_ethics_te3_large',
+        collection_name='ai_ethics_nomicv1_finetuned',
         embedding=embedding,
         url=os.environ.get('QDRANT_DB'),
         api_key=os.environ.get('QDRANT_API_KEY')
