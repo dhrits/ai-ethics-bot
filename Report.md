@@ -19,7 +19,7 @@ Given stakeholders querying this system are unlikely to know too many details ab
 **This data indexing is done at the notebook linked [here](https://github.com/dhrits/ai-ethics-bot/blob/main/nbs/Dealing%20with%20Data.ipynb).**
 
 # 2. An End-to-End Chatbot
-An end-to-end prototype of a chatbot which allows querying the docs above is **deployed using a huggingface space [here](https://huggingface.co/spaces/deman539/ai-ethics-bot)**
+An end-to-end prototype of a chatbot which allows querying the docs above is **deployed using a huggingface space [here](https://huggingface.co/spaces/deman539/ai-ethics-bot)**. The key functionality of this chatbot is described via [this loom video](https://www.loom.com/share/675c36ee837e4f44a5a9f6cc03891cc8?sid=b2523d6e-b2c4-4a59-b84f-0c168e72bb99)
 
 The code for this application can be found in this [huggingface repository](https://huggingface.co/spaces/deman539/ai-ethics-bot/tree/main). 
 
@@ -30,7 +30,7 @@ Langchain similarly allows for expressive LLM applications by making use of the 
 # 3. Creating a Golden Test Dataset
 Following the principles of MDD, we would like to create a dataset which can be used to evaluate different strategies. We do this using the RAGAS framework. **[This notebook](https://github.com/dhrits/ai-ethics-bot/blob/main/nbs/Test%20Data%20and%20RAGAS%20Evaluation.ipynb)** contains the code for generating the golden **[test dataset](https://github.com/dhrits/ai-ethics-bot/blob/main/nbs/golden_eval_set.csv)**.
 
-We then proceed to evaluate our two chunking strategies using the RAGAS framework on the metrics of faithfullness, answer-relevance, context-recall, context-precision and answer-correctness. **This evaluation and a table of comparison is available in the [same notebook](https://github.com/dhrits/ai-ethics-bot/blob/main/nbs/Test%20Data%20and%20RAGAS%20Evaluation.ipynb)** (Table of comparison at the end of the notebook).
+We then proceed to evaluate our two chunking strategies using the RAGAS framework on the metrics of faithfullness, answer-relevance, context-recall, context-precision and answer-correctness. **This evaluation and a table of comparison is available in the [same notebook](https://github.com/dhrits/ai-ethics-bot/blob/main/nbs/Test%20Data%20and%20RAGAS%20Evaluation.ipynb) (Table of comparison at the end of the notebook).**
 
 **Evaluation Conclusions** - Both strategies perform well out-of-the-box. All metrics were > 80% except answer-correctness which was in the 60s. Overall, using SemanticChunker with text-embedding-3-large didn't make too much of a difference in the metrics. 
 
