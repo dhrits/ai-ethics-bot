@@ -49,7 +49,7 @@ def get_rag_chain():
         model_kwargs={'trust_remote_code': True}
     )
     retriever = QdrantVectorStore.from_existing_collection(
-        collection_name='ai_ethics_nomicv1_finetuned',
+        collection_name='ai_ethics_nomicv1_long_context_finetuned',
         embedding=embedding,
         url=os.environ.get('QDRANT_DB'),
         api_key=os.environ.get('QDRANT_API_KEY')
